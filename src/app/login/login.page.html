@@ -1,0 +1,26 @@
+<ion-content class="ion-padding">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-input label="Email" labelPlacement="floating" type="email"
+                 formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Senha" labelPlacement="floating" type="password"
+                 formControlName="senha"></ion-input>
+    </ion-item>
+
+    @if (erro) {
+      <p style="color: var(--ion-color-danger)">{{ erro }}</p>
+    }
+
+    <ion-button expand="block" type="submit" class="ion-margin-top"
+                [disabled]="isLoading">
+      @if (isLoading) {
+        <ion-spinner name="crescent"></ion-spinner>
+      } @else {
+        Entrar
+      }
+    </ion-button>
+  </form>
+</ion-content>
